@@ -9,7 +9,7 @@ const RecipeDetails = props => {
 
   return (
     <>
-      <div>{recipe?.title}</div>
+      <div>{recipe.title}</div>
       <Button component={RouterLink}
               to="/">Go Back</Button>
     </>

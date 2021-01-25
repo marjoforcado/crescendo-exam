@@ -25,6 +25,8 @@ import {
 
 import { addRecipes } from './store/reducers/recipes/actions';
 
+import { PrivateRoute } from './routes';
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -50,9 +52,9 @@ const App = props => {
           <Route path="/"
                  component={HomePage}
                  exact />
-          <Route path="/view/:uuid"
-                 component={ViewRecipePage}
-                 exact />
+          <PrivateRoute path="/view/:uuid"
+                        component={ViewRecipePage}
+                        exact />
           <Route path="*"
                  component={Error404Page} />
         </Switch>
