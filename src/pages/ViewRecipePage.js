@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { useParams } from 'react-router-dom';
-
 import { useSelector } from 'react-redux'
+
+import { useParams } from 'react-router-dom';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
 import { RecipeDetails } from '../shared/components';
+
 
 const ViewRecipePage = () => {
   const { uuid } = useParams();
