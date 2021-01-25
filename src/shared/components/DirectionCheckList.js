@@ -15,8 +15,8 @@ import {
 
 import { RecipeContext } from '../../contexts/RecipeContext';
 
-const IngredientsCheckList = () => {
-  const { ingredients } = useContext(RecipeContext);
+const DirectionCheckList = () => {
+  const { directions } = useContext(RecipeContext);
 
   const [checked, setChecked] = useState([]);
 
@@ -37,11 +37,11 @@ const IngredientsCheckList = () => {
   return (
     <List>
       {
-        ingredients.map((ingredient, index) => {
-          const labelId = `checkbox-list-label-${ingredient.uuid}`;
+        directions.map((direction, index) => {
+          const labelId = `checkbox-list-label-${direction.index}`;
 
           return (
-            <ListItem key={ingredient.uuid}
+            <ListItem key={index}
                       onClick={e => handleToggle(index)}
                       dense
                       button>
@@ -53,7 +53,8 @@ const IngredientsCheckList = () => {
                           disableRipple />
               </ListItemIcon>
               <ListItemText id={labelId}
-                            primary={`${ingredient.amount} ${ingredient.measurement} ${ingredient.name}`} />
+                            primary={direction.instructions}
+                            secondary={direction.optional ? 'Optional' : ''} />
             </ListItem>
           );
         })
@@ -62,4 +63,4 @@ const IngredientsCheckList = () => {
   );
 };
 
-export default IngredientsCheckList;
+export default DirectionCheckList;

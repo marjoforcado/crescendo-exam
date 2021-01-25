@@ -54,11 +54,17 @@ const RecipeDetails = () => {
             </Typography>
           </CardContent>
         </Card>
-        <Button component={RouterLink}
-                to="/">Go Back</Button>
+        <Button className="d-none d-sm-block"
+                variant="contained"
+                color="primary"
+                to="/"
+                component={RouterLink}
+                fullWidth>Go Back</Button>
       </Grid>
       <Grid item
-            xs>
+            xs={12}
+            sm={6}
+            md={8}>
         <RecipeTab />
       </Grid>
     </Grid>

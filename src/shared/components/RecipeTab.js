@@ -7,7 +7,10 @@ import {
   Tabs,
 } from '@material-ui/core';
 
-import { IngredientsCheckList } from './';
+import {
+  DirectionCheckList,
+  IngredientsCheckList,
+} from './';
 
 const TabPanel = props => {
   const {
@@ -51,7 +54,7 @@ const RecipeTab = () => {
         <IngredientsCheckList />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <DirectionCheckList />
       </TabPanel>
     </>
   );

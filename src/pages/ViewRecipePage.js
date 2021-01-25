@@ -2,7 +2,12 @@ import React from 'react';
 
 import { useSelector } from 'react-redux'
 
-import { useParams } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+
+import {
+  Link as RouterLink,
+  useParams,
+} from 'react-router-dom';
 
 import { RecipeContext } from '../contexts/RecipeContext';
 
@@ -18,7 +23,21 @@ const ViewRecipePage = () => {
   return (
     <DefaultLayout>
       <RecipeContext.Provider value={recipe}>
+        <Button className="d-block d-sm-none mb-3"
+                variant="contained"
+                color="primary"
+                to="/"
+                size="large"
+                component={RouterLink}
+                fullWidth>Go Back</Button>
         <RecipeDetails />
+        <Button className="d-block d-sm-none mt-3"
+                variant="contained"
+                color="primary"
+                to="/"
+                size="large"
+                component={RouterLink}
+                fullWidth>Go Back</Button>
       </RecipeContext.Provider>
     </DefaultLayout>
   );
