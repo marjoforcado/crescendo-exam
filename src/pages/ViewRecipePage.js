@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux'
 
 import { useParams } from 'react-router-dom';
 
+import { RecipeContext } from '../contexts/RecipeContext';
+
 import DefaultLayout from '../layouts/DefaultLayout';
 
 import { RecipeDetails } from '../shared/components';
-
 
 const ViewRecipePage = () => {
   const { uuid } = useParams();
@@ -16,7 +17,9 @@ const ViewRecipePage = () => {
 
   return (
     <DefaultLayout>
-      <RecipeDetails recipe={recipe} />
+      <RecipeContext.Provider value={recipe}>
+        <RecipeDetails />
+      </RecipeContext.Provider>
     </DefaultLayout>
   );
 };

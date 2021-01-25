@@ -1,5 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import {
+  useContext,
+  useState,
+} from 'react';
 
 import {
   Checkbox,
@@ -10,8 +13,10 @@ import {
   ListSubheader,
 } from '@material-ui/core';
 
-const IngredientsCheckList = props => {
-  const { ingredients } = props;
+import { RecipeContext } from '../../contexts/RecipeContext';
+
+const IngredientsCheckList = () => {
+  const { ingredients } = useContext(RecipeContext);
 
   const [checked, setChecked] = useState([]);
 

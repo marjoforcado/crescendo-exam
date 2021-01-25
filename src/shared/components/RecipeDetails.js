@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -16,10 +17,12 @@ import {
   Timer,
 } from '@material-ui/icons';
 
-import { IngredientsCheckList } from './';
+import { RecipeContext } from '../../contexts/RecipeContext';
 
-const RecipeDetails = props => {
-  const { recipe } = props;
+import { RecipeTab } from './';
+
+const RecipeDetails = () => {
+  const recipe = useContext(RecipeContext);
 
   return (
     <Grid spacing={3}
@@ -56,11 +59,7 @@ const RecipeDetails = props => {
       </Grid>
       <Grid item
             xs>
-        <Card>
-          <CardContent>
-            <IngredientsCheckList ingredients={recipe.ingredients} />
-          </CardContent>
-        </Card>
+        <RecipeTab />
       </Grid>
     </Grid>
   );
