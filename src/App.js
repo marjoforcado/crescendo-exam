@@ -1,5 +1,10 @@
 import React from 'react';
-import { useEffect } from 'react';
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import { connect } from 'react-redux';
 
 import {
   BrowserRouter as Router,
@@ -10,10 +15,14 @@ import {
 
 import { CssBaseline } from '@material-ui/core';
 
+import { recipeService } from './services';
+
 import {
   Error404Page,
   HomePage,
 } from './pages';
+
+import { addRecipes } from './store/reducers/recipes/actions';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,7 +32,14 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App = () => {
+const App = props => {
+  const { addRecipes } = props;
+
+  useEffect(() => (async () => {
+    const { data } = await recipeService.getRecipes$();
+    addRecipes(data);
+  })(), []);
+
   return (
     <>
       <CssBaseline />
@@ -41,4 +57,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect(null, { addRecipes })(App);
