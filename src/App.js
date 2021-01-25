@@ -20,6 +20,7 @@ import { recipeService } from './services';
 import {
   Error404Page,
   HomePage,
+  ViewRecipePage,
 } from './pages';
 
 import { addRecipes } from './store/reducers/recipes/actions';
@@ -48,6 +49,9 @@ const App = props => {
         <Switch>
           <Route path="/"
                  component={HomePage}
+                 exact />
+          <Route path="/view/:uuid"
+                 component={ViewRecipePage}
                  exact />
           <Route path="*"
                  component={Error404Page} />

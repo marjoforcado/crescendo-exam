@@ -1,6 +1,11 @@
 import React from 'react';
 
 import {
+  Link as RouterLink,
+  useRouteMatch,
+} from 'react-router-dom';
+
+import {
   GridList,
   GridListTile,
   GridListTileBar,
@@ -14,8 +19,6 @@ import { connect } from 'react-redux';
 const RecipeList = props => {
   const { recipes } = props;
 
-  console.log(recipes);
-
   const recipeList = recipes.map(recipe => (
     <GridListTile key={recipe.uuid}>
       <img src={`${process.env.REACT_APP_FAKE_API}${recipe.images.medium}`}
@@ -23,7 +26,9 @@ const RecipeList = props => {
       <GridListTileBar title={recipe.title}
                        subtitle={`${recipe.prepTime} mins`}
                        actionIcon={
-                         <IconButton style={{color: 'rgba(255, 255, 255, 0.54)'}}>
+                         <IconButton component={RouterLink}
+                                     to={`/view/${recipe.uuid}`}
+                                     style={{color: 'rgba(255, 255, 255, 0.54)'}}>
                           <Info />
                          </IconButton>
                        } />
