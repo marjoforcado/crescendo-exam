@@ -2,9 +2,11 @@ import React from 'react';
 
 import DefaultLayout from '../layouts/DefaultLayout';
 
+import { RecipeList } from '../shared/components';
+
 const HomePage = () => (
   <DefaultLayout>
-    Home Page
+    <RecipeList />
   </DefaultLayout>
 );
 
