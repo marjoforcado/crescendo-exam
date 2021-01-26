@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  useEffect,
-  useState,
-} from 'react';
+import { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -41,7 +38,7 @@ const App = props => {
   useEffect(() => (async () => {
     const { data } = await recipeService.getRecipes$();
     addRecipes(data);
-  })(), []);
+  })());
 
   return (
     <>

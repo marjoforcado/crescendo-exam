@@ -10,7 +10,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
 } from '@material-ui/core';
 
 import { RecipeContext } from '../../contexts/RecipeContext';

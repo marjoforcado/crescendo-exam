@@ -18,7 +18,8 @@ const PrivateRoute = props => {
     return <Route render={({ location }) => <Redirect to={{path: '/', state: { from: location }}} />} />;
   }
 
-  return <Route render={() => children} {...others} />;
+  return <Route component={children} 
+                {...others} />;
 };
 
 const mapStateToProps = state => ({
